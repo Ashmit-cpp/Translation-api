@@ -72,7 +72,7 @@ export function ComboboxForm() {
           name="language"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Language</FormLabel>
+              <FormLabel>Supported Languages:</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -121,6 +121,8 @@ export function ComboboxForm() {
                   </Command>
                 </PopoverContent>
               </Popover>
+              <Button className="w-[200px] p-0" type="submit">Select</Button>
+
               <FormDescription>
                 This is the language to which input text will be translated.
               </FormDescription>
@@ -128,7 +130,6 @@ export function ComboboxForm() {
             </FormItem>
           )}
         />
-        <Button  type="submit">Submit</Button>
       </form>
     </Form>
   )
