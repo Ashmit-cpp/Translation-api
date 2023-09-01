@@ -30,7 +30,7 @@ const Header = () => {
           </div>
           <nav className="mx-6 items-center space-x-4 lg:space-x-6  md:block">
             {routes.map((route, i) => (
-              <Button asChild variant="ghost" key={route.href}>
+              <Button asChild variant="ghost" key={i}>
                 <Link
                   href={route.href}
                   className="text-sm font-medium transition-colors"
