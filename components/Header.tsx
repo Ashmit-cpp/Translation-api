@@ -10,11 +10,11 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const routes = [
     {
-      href: "/",
+      href: "/translator",
       label: "Translator",
     },
     {
-      href: "/",
+      href: "/documentation",
       label: "Documentation",
     },
   ];
@@ -30,9 +30,8 @@ const Header = () => {
           </div>
           <nav className="mx-6 items-center space-x-4 lg:space-x-6  md:block">
             {routes.map((route, i) => (
-              <Button asChild variant="ghost">
+              <Button asChild variant="ghost" key={route.href}>
                 <Link
-                  key={i}
                   href={route.href}
                   className="text-sm font-medium transition-colors"
                 >
