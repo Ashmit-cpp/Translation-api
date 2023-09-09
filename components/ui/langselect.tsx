@@ -1,4 +1,5 @@
 "use client"
+import React, { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Check, ChevronsUpDown } from "lucide-react"
@@ -41,17 +42,20 @@ const languages = [
   { label: "Korean", value: "ko" },
   { label: "Chinese", value: "zh" },
 ] as const
-
+type ComboboxFormProps = {
+  setSelectedLanguage: (language: string) => void;
+};
 const FormSchema = z.object({
   language: z.string({
     required_error: "Please select a language.",
   }),
 })
 
-export function ComboboxForm() {
+export function ComboboxForm({ setSelectedLanguage }: ComboboxFormProps) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   })
+
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
@@ -104,6 +108,8 @@ export function ComboboxForm() {
                           key={language.value}
                           onSelect={() => {
                             form.setValue("language", language.value)
+                            form.setValue("language", language.value);
+                            setSelectedLanguage(language.value);
                           }}
                         >
                           <Check
@@ -121,8 +127,6 @@ export function ComboboxForm() {
                   </Command>
                 </PopoverContent>
               </Popover>
-              <Button className="w-[200px] p-0" type="submit">Select</Button>
-
               <FormDescription>
                 This is the language to which input text will be translated.
               </FormDescription>
