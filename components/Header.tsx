@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import Container from "./ui/container";
 import { Button } from "./ui/button";
 import { Menu, Moon, Gem, Sun } from "lucide-react";
-import ProfileButton from "./ui/ProfileButton";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -65,7 +65,19 @@ const Header = () => {
               <Moon className="absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle Theme</span>
             </Button>
-            <ProfileButton />
+            <div>
+                  <SignedOut>
+                    <Link href="/sign-in">Sign in</Link>
+                  </SignedOut>
+                  <SignedIn>
+                    <UserButton
+                      userProfileMode="navigation"
+                      userProfileUrl="/user"
+                      afterSignOutUrl="/"
+                      afterMultiSessionSingleSignOutUrl="/"
+                    />
+                  </SignedIn>
+                </div>
           </div>
         </div>
       </Container>
