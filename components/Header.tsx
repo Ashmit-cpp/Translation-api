@@ -24,11 +24,19 @@ const Header = () => {
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center">
-            <Link href="/" className="ml-4 lg:ml-0">
-              <h1 className="text-xl font-bold">LangBridge</h1>
-            </Link>
+            <Button
+              variant="default"
+              size="icon"
+              className="mr-2 bg-[#103FEF] 103FEF hover:bg-blue-500 h-8 w-30 p-2"
+            >
+              <Link href="/" className="ml-4 lg:ml-0">
+                <h1 className="text-xl p-2 font-bold  ">
+                  LangBridge
+                </h1>
+              </Link>
+            </Button>
           </div>
-          <nav className="mx-6 items-center space-x-4 lg:space-x-6  md:block">
+          {/* <nav className="mx-6 items-center space-x-4 lg:space-x-6  md:block">
             {routes.map((route, i) => (
               <Button asChild variant="ghost" key={i}>
                 <Link
@@ -39,7 +47,7 @@ const Header = () => {
                 </Link>
               </Button>
             ))}
-          </nav>
+          </nav> */}
           <div className="flex items-center">
             <div className="ml-4 lg:ml-0">
               <Button
@@ -66,18 +74,24 @@ const Header = () => {
               <span className="sr-only">Toggle Theme</span>
             </Button>
             <div>
-                  <SignedOut>
-                    <Link href="/sign-in">Sign in</Link>
-                  </SignedOut>
-                  <SignedIn>
-                    <UserButton
-                      userProfileMode="navigation"
-                      userProfileUrl="/user"
-                      afterSignOutUrl="/"
-                      afterMultiSessionSingleSignOutUrl="/"
-                    />
-                  </SignedIn>
-                </div>
+              <SignedOut>
+                <Button
+                  variant="default"
+                  size="icon"
+                  className="mr-2 bg-[#103FEF] 103FEF hover:bg-blue-500 h-8 w-30 p-2"
+                >
+                  <Link href="/sign-in">Sign in</Link>
+                </Button>
+              </SignedOut>
+              <SignedIn>
+                <UserButton
+                  userProfileMode="navigation"
+                  userProfileUrl="/user"
+                  afterSignOutUrl="/"
+                  afterMultiSessionSingleSignOutUrl="/"
+                />
+              </SignedIn>
+            </div>
           </div>
         </div>
       </Container>
