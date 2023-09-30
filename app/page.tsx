@@ -4,7 +4,6 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Main = () => (
   <main className="p-2">
-    <h1 >Welcome to your new app</h1>
     <SignedIn>
       <p >You have successfully signed in</p>
     </SignedIn>
