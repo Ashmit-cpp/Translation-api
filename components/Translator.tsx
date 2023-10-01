@@ -44,7 +44,7 @@ function Translator() {
   };
 
   return (
-    <div>
+    <div className="m-6">
       <div className="p-4">
         <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
       </div>

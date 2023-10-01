@@ -13,11 +13,7 @@ export const metadata: Metadata = {
   description: "Language Translation App",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({  children,}: {  children: React.ReactNode;}) {
   return (
     <ClerkProvider>
     <html lang="en">
