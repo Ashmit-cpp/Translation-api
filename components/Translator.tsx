@@ -8,7 +8,6 @@ function Translator() {
   const [inputText, setInputText] = useState(""); // State to hold input text
   const [outputText, setOutputText] = useState(""); // State to hold translated text
   const [selectedLanguage, setSelectedLanguage] = useState("");
-
   const makeAPICall = async () => {
     const url = "https://text-translator2.p.rapidapi.com/translate";
     const options = {
@@ -24,7 +23,6 @@ function Translator() {
         text: inputText, 
       }),
     };
-
     try {
       const response = await fetch(url, options);
       const result = await response.json(); 
@@ -38,17 +36,14 @@ function Translator() {
       console.error(error);
     }
   };
-
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value); 
   };
-
   return (
     <div className="m-6">
       <div className="p-4">
         <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
       </div>
-
       <div className="flex p-2">
         <div className="w-1/2 p-2">
           <Textarea
