@@ -20,12 +20,12 @@ function Translator() {
       body: new URLSearchParams({
         source_language: "en",
         target_language: selectedLanguage,
-        text: inputText, 
+        text: inputText,
       }),
     };
     try {
       const response = await fetch(url, options);
-      const result = await response.json(); 
+      const result = await response.json();
       if (result.status === "success") {
         const translatedText = result.data.translatedText;
         setOutputText(translatedText);
@@ -37,7 +37,7 @@ function Translator() {
     }
   };
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setInputText(e.target.value); 
+    setInputText(e.target.value);
   };
   return (
     <div className="m-6">
@@ -50,7 +50,7 @@ function Translator() {
             placeholder="Input"
             className="border p-2 w-full h-32"
             value={inputText}
-            onChange={handleInputChange} 
+            onChange={handleInputChange}
           />
           <Button onClick={makeAPICall} className="p-4 mt-4">
             Translate Text
@@ -62,7 +62,7 @@ function Translator() {
             placeholder="Output"
             className="border p-2 w-full h-32"
             readOnly
-            value={outputText} 
+            value={outputText}
           />
         </div>
       </div>
